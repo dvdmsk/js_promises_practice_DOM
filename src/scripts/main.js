@@ -35,7 +35,9 @@ const secondPromise = new Promise((resolve, reject) => {
       rightClick = false;
     }
 
-    resolve('Second promise was resolved');
+    if (e.button === 0 || e.button === 2) {
+      resolve('Second promise was resolved');
+    }
   };
 
   document.addEventListener('mouseup', handler);
