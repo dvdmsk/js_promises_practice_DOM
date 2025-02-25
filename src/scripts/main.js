@@ -13,7 +13,6 @@ const firstPromise = new Promise((resolve, reject) => {
     if (e.button === 0) {
       leftClick = true;
       resolve('First promise was resolved');
-      document.removeEventListener('click', handler);
     }
   };
 
@@ -23,7 +22,6 @@ const firstPromise = new Promise((resolve, reject) => {
     if (!leftClick) {
       reject(new Error('First promise was rejected'));
     }
-    document.removeEventListener('click', handler);
   }, 3000);
 });
 const secondPromise = new Promise((resolve, reject) => {
@@ -37,9 +35,7 @@ const secondPromise = new Promise((resolve, reject) => {
       rightClick = false;
     }
 
-    if (leftClick || rightClick) {
-      resolve('Second promise was resolved');
-    }
+    resolve('Second promise was resolved');
   };
 
   document.addEventListener('mouseup', handler);
